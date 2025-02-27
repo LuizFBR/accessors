@@ -20,9 +20,9 @@ test(composite_atom) :-
 test(monotonicity) :-
     Pred1 = pred(a,b,c),
     Pred2 = 'composite name'(a,b,c),
-    pred_a(Pred,a),
-    'composite name_a'(Pred,a),
-    pred_a(Pred,a).
+    pred_a(Pred1,a),
+    'composite name_a'(Pred2,a),
+    pred_a(Pred1,a).
 
 % test(purity) :- How to test for purity?
 %     Pred1 = pred(X,Y,Z),
