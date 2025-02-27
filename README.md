@@ -4,13 +4,22 @@ Relational predicate accessors generators that allows easy and efficient access 
 
 This library provides the user with a `:- derive_accessors/1` prolog directive that automatically generates relational predicates that associate a predicate with each of its arguments.
 
+To-do:
+- Test for purity;
+- Parse list-pairs.
+
 ## Installation
 
 To install the fld library, type the following in the SWI-Prolog shell:
 
 ```Prolog
-pack_install('accessors').
+? - pack_install('accessors').
   true.
+```
+or
+
+```Prolog
+?- pack_install('https://github.com/LuizFBR/accessors.git').
 ```
 
 ## Example

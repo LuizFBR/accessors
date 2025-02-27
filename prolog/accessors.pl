@@ -20,12 +20,9 @@ derive_all_accessors(PredName,Arity,[Name|NamesTail],[Term | TermsListTail]) :-
     #(Index) #= #(Arity) - #(NumberOfRemainingNames),
     phrase(accessor(PredName,Arity,Name,Index),L),
     atomics_to_string(L,S),
-    write(S),nl,
+    % write(S),nl,
     atom_to_term(S,Term,_),
-    write(Term),nl,
-    % assertz(user:Term),
-    % atomic_list_concat([PredName,Name],'_',AccessorName),
-    % compile_predicates([user:AccessorName/2]),
+    % write(Term),nl,
     derive_all_accessors(PredName,Arity,NamesTail,TermsListTail).
 
 accessor(PredName,Arity,Name,Index) -->
