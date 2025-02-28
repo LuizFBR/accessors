@@ -2,6 +2,8 @@
 
 :- derive_accessors(pred(a,b,c)).
 :- derive_accessors('composite name'(a,b,c)).
+:- derive_accessors(fact, [a,b,c]).
+:- derive_accessors('composite name2', [a,b,c]).
 
 :- begin_tests(derive_accessors_directive).
 
@@ -30,3 +32,19 @@ test(monotonicity) :-
 %     pred_a(Pred,B).
 
 :- end_tests(derive_accessors_directive).
+
+:- begin_tests(derive_accessors_directive_pairslist).
+
+test(simple_atom) :-
+    FactList = [a-a,b-b,c-c],
+    fact_a(FactList,a),
+    fact_b(FactList,b),
+    fact_c(FactList,c).
+
+test(composite_atom) :-
+    CompositeNameList = [a-a,b-b,c-c],
+    'composite name2_a'(CompositeNameList,a),
+    'composite name2_b'(CompositeNameList,b),
+    'composite name2_c'(CompositeNameList,c).
+
+:- end_tests(derive_accessors_directive_pairslist).
